@@ -1,0 +1,21 @@
+nav
+{ 
+	line-height:30px;
+	background-color:orange;
+	float:inherit;
+	padding:20px;
+	margin:20px;
+} 
+
+#container
+{
+	width : 100%;
+}
+
+a 
+{  
+	color:blue;
+	text-align: center;
+	text-transform: capitalize;
+	text-indent: 50px;
+}
