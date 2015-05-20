@@ -30,9 +30,9 @@
 	$email = $array[1];
 	include_once "./Common/dbDisconnect.php";
 ?>
-<form method="post" action="">
+<form method="post" action="" onsubmit="ModifyAccount(); return false;">
 	<fieldset>
-		<label style="width:150px; height:30px">Edit User: <?php echo $_SESSION["LoggedUserName"]?></label> 
+		<label style="width:200px; height:30px">Edit User: Name "<?php echo $_SESSION["LoggedUserName"]?>"</label> 
 		<p>
 			<label for="first_name">User Type:  </label>
 			<input type="radio" name="autho" checked="checked" value=<?php echo $_SESSION["LoggedUserType"]?>>
@@ -69,25 +69,26 @@
 		<p>
 			<label for="Password">Current Password: </label>
 			<input type="password" name="CurrPassword" id="CurrPassword"  size="30" maxlength="25" required
-			placeholder="Enter Current Pass"/>
+			placeholder="Enter Current Pass" onblur="verifyCurrPass();"/>
+			<div id="currPassMsg"></div>
 		</p>
 		
         <p>
 			<label for="Password">New Password: </label>
 			<input type="password" name="Password" id="Password"  size="30" maxlength="25" required
-			placeholder="Enter New Pass" onblur="checkPass()"/>
+			placeholder="Enter New Pass" onchange="checkPass()"/>
 		</p>
 
 		<p>
 			<label for="Password"> Re-Enter Password: </label>
 			<input type="password" name="Password1" id="Password1"  size="30" maxlength="25" required
-			placeholder="Confirm New Pass" onblur="checkPass()" />
+			placeholder="Confirm New Pass" onchange="checkPass()" />
 			<div id="confirmMessage"></div>
 		</p>
 		
 		<p> 
-			<button type="submit" class="create_profile"> Modify Account</button>
-			<button type="reset" class="create_profile"> Cancel</button>
+			<button type="submit" id="my_submit"> Modify Account</button>
+			<div id="divModifyMsg"></div>
 		</p>
 
 	</fieldset>

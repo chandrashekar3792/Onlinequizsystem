@@ -6,15 +6,15 @@ function encodeNameAndValue(sName, sValue)
 	return sParam; 
 }
 
-function checkuser()
-{
+// function checkuser()
+// {
 	
-	var usernameElem = document.getElementById("username");
-	var username=(encodeNameAndValue(usernameElem.name,usernameElem.value));
+	// var usernameElem = document.getElementById("username");
+	// var username=(encodeNameAndValue(usernameElem.name,usernameElem.value));
 		
-	return username;
+	// return username;
 	
-}
+// }
 
 function sendusercheckReq()
 {	
@@ -30,7 +30,7 @@ function sendusercheckReq()
 			if(xhrReq.status == 200)
 			{    
 				//alert("Correct response received");
-				if(xhrReq.responseText.indexOf("failure")>0)
+				if(xhrReq.responseText.indexOf("failure")>=0)
 				{
 					var divElem = document.getElementById("divLoginMsg");
 					divElem.style.color = "red";
