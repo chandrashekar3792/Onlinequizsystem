@@ -1,5 +1,3 @@
-
-
 <!-- insert the required html code here..
 <!--Need to see if this really works.Including script tag within body.. -->
 <script type="text/javascript" src="../js/queLoad.js" ></script>
@@ -9,7 +7,6 @@
 	//sendQueRequest("B:\\Phani_M_Tech_Files\\M_Tech_2nd_Sem\\SE\\assignment\\quiz\\xml\\questions.xml");
 	sendGetQueReq();
 </script>
-<framset>
 
 <!-- Here you need to add the timer clock and the div space for questions -->
 <div id="DivQuestion">

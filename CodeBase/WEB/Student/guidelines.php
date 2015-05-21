@@ -19,7 +19,8 @@ Maximum score is 16 points.</p>
 	
 	<script>
 		function openWin() {
-			var myWindow = window.open("StartQuiz.php", "myWindow", "width=200, height=100");
+			//alert("Offset Width"+document.body.offsetWidth+ " h: "+document.body.offsetHeight );
+			var myWindow = window.open("StartQuiz.php", "myWindow", "width="+640, "height="+480);
 			setTimeout(function(){ myWindow.close() }, 1500000);
 		}
 		

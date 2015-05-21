@@ -202,7 +202,7 @@
 					*/
 					var now = new Date();
                 			//alert("Current System Time is: "+(now.getHours()).toString()+" hours, "+now.getMinutes()+" minutes, "+now.getSeconds()+" seconds")
-                			confirm("Current System Time is: "+(now.getHours()).toString()+" hours, "+now.getMinutes()+" minutes, "+now.getSeconds()+" seconds")
+                			//confirm("Current System Time is: "+(now.getHours()).toString()+" hours, "+now.getMinutes()+" minutes, "+now.getSeconds()+" seconds")
                 			
 					initializeMinuteHrAndSecHands(false,now.getHours(),now.getMinutes(),now.getSeconds())
 				}
@@ -806,46 +806,9 @@
 		</script>
 	</head>
 	<body onload="drawClock()">
-	
-		<p>
-		        Web 2.0 Assignment-1<br />
-		        Done by : Shree Phani Sundara B N<br />
-		        Class : M.Tech 1st semester<br />
-		        Branch : Web Technologies<br />
-		        Date : 17 - Oct - 2014<br />
-		</p>
-		<br />
-		
-		<h3> Showing Current System Time :- </h3>
-		<p>
-			<form method="" action="">
-				<label>
-					Enter Time in "hh:mm:ss" format :
-					<input type="time" id="timeid" value="" placeholder="hh:mm:ss">
-					</input>
-				</label>
-				
-				<label>
-					<input type="button" value="set time" id="setTimeButton" onclick="onClickSetTime()">
-					</input>
-				</label>
-			</form>
-		</p>
-		<br />
-		<canvas id = "clock_canvas" width = "400" height = "300" style = "border:solid red;background:orange;position:absolute; top:300px; left:200px "></canvas>
-		<!-- <canvas id = "hrminsec_canvas" width = "400" height = "300" style="border:dotted black;" ></canvas> -->
-
-        	<!--<canvas id = "hrHand_canvas" width = "400" height = "300" style="border:dotted pink; "> ></canvas>
-		<canvas id = "minHand_canvas" width = "400" height = "300" style="border:dotted green;" ></canvas>
-		<canvas id = "secHand_canvas" width = "400" height = "300" style="border:dotted blue;" ></canvas>-->
-		
-		<!--<canvas id = "clock_canvas" width = "300" height = "300" style="border:dotted black;background:violet" > </canvas>-->
-		
-        <canvas id = "hrHand_canvas" width = "400" height = "300"  style="border:solid white;"></canvas>
-		<canvas id = "minHand_canvas" width = "400" height = "300" style="border:solid white;"></canvas>
-		<canvas id = "secHand_canvas" width = "400" height = "300" style="border:solid white;"></canvas>
-
-		
-		
+		<canvas id = "clock_canvas" width = "200" height = "200" style = "border:solid red;background:orange;position:absolute; top:0px; left:0px "></canvas>
+        <canvas id = "hrHand_canvas" width = "200" height = "200" style="border:solid white;"></canvas>
+		<canvas id = "minHand_canvas" width = "200" height = "200" style="border:solid white;"></canvas>
+		<canvas id = "secHand_canvas" width = "200" height = "200" style="border:solid white;"></canvas>
 	</body>
 </html>
