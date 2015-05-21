@@ -1,9 +1,9 @@
 <form>
 <table>
   <tr>
-	  <td  onclick="myFunction(this, 'red')">1</td>
+	  <td  onclick="myFunction(this, 'blue')">1</td>
 	  <td  onclick="myFunction(this,'blue')">2</td>
-	  <td  onclick="myFunction(this,'red')">3</td>
+	  <td  onclick="myFunction(this,'blue')">3</td>
 	  <td  onclick="myFunction(this,'blue')">4</td>
 	  <td  onclick="myFunction(this,'blue')">5</td>
   

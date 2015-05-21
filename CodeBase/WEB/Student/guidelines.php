@@ -15,7 +15,19 @@ don't know, about Technical skills.</p>
 each correct answer. At the end of the Quiz, your total score will be displayed.
 Maximum score is 16 points.</p>
 <ul> 
-<button type="button" ><a href="./QuestionDisplayPage.php">Start the Quiz</a></button>
+	<button type="button" <button onclick="openWin()" >Start the Quiz</a>  </button>
+	
+	<script>
+		function openWin() {
+			var myWindow = window.open("StartQuiz.php", "myWindow", "width=200, height=100");
+			setTimeout(function(){ myWindow.close() }, 1500000);
+		}
+		
+	</script>
+	
+	
+<?php include_once "../Common/footer.php"; ?>
+
 </ul>
 </a> 
 </fieldset>

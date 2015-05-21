@@ -1,4 +1,4 @@
-<?php $Title = "Online Quiz"; include_once "../Common/header.php"; ?>
+
 
 <!-- insert the required html code here..
 <!--Need to see if this really works.Including script tag within body.. -->
@@ -9,7 +9,7 @@
 	//sendQueRequest("B:\\Phani_M_Tech_Files\\M_Tech_2nd_Sem\\SE\\assignment\\quiz\\xml\\questions.xml");
 	sendGetQueReq();
 </script>
-
+<framset>
 
 <!-- Here you need to add the timer clock and the div space for questions -->
 <div id="DivQuestion">
@@ -25,4 +25,3 @@
 		
 	</form-->
 </div>
-<?php include_once "../Common/footer.php"; ?>
