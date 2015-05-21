@@ -1,5 +1,9 @@
 <?php $Title = "Resources"; include_once "../Common/header.php" ?>
-
+<style>
+	form{
+		margin-left:145px;
+	}
+</style>
  <form>
  <fieldset>
  

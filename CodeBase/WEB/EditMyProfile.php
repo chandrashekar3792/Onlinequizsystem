@@ -30,7 +30,7 @@
 	$email = $array[1];
 	include_once "./Common/dbDisconnect.php";
 ?>
-<form method="post" action="" onsubmit="ModifyAccount(); return false;">
+<form class="edit"method="post" action="" onsubmit="ModifyAccount(); return false;">
 	<fieldset>
 		<label style="width:200px; height:30px">Edit User: Name "<?php echo $_SESSION["LoggedUserName"]?>"</label> 
 		<p>

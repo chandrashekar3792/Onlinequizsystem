@@ -1,7 +1,6 @@
 <?php $Title = "Guidelines"; include_once "../Common/header.php" ?>
 
-
- <form>
+ <form class="guid">
  <fieldset>
  <p>You can test your Technical skills with Quiz.</p>
 <hr><h2>The Test</h2>
@@ -15,6 +14,7 @@ don't know, about Technical skills.</p>
 each correct answer. At the end of the Quiz, your total score will be displayed.
 Maximum score is 16 points.</p>
 <ul> 
+	
 	<button type="button" <button onclick="openWin()" >Start the Quiz</a>  </button>
 	
 	<script>
@@ -26,7 +26,7 @@ Maximum score is 16 points.</p>
 	</script>
 	
 	
-<?php include_once "../Common/footer.php"; ?>
+
 
 </ul>
 </a> 

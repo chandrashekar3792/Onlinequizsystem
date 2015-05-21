@@ -22,7 +22,7 @@ else if($_SESSION["LoggedUserType"] == "A")
 	$Title = "Welcome Admin"; 
 	include_once "../Common/header.php" 
 ?>
-<form>
+<form class="admin">
 	<table >
 		<tr>
 			<td><a href="./Edituser.php" > <img src = "../images/logo2c.png" title = "Click Here To Edit An Existing User" alt = "Click Here To Edit An Existing User" style="width:300px; height:100px" /> </a></td>
@@ -32,5 +32,5 @@ else if($_SESSION["LoggedUserType"] == "A")
 			<td  colspan="2"><a href="./AddQuestions.php" > <img src = "../images/AddQuestions.png" title = "Click Here To Add New Questions" alt = "Click Here Search An User" style="width:300px; height:100px" /> </a></td>
 		</tr>
 	</table>
-<form>
+</form>
 <?php include_once "../Common/footer.php"; ?>
