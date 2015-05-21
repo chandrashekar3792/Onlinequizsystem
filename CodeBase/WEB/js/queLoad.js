@@ -6,6 +6,8 @@
 		// //transformXml(xml);
 	// }
 // }//end of fn loadAndTransformXml..
+var quesArray = new Array();
+var dispQueNo = 1;
 
 function sendGetQueReq()
 {
@@ -21,7 +23,10 @@ function sendGetQueReq()
 			if(xhrReq.status == 200)
 			{
 				//alert("Correct response received");
-				transformQueXml(xhrReq.responseText);
+				//transformQueXml(xhrReq.responseText);
+				transformQueXmlToArray(xhrReq.responseText);
+				firstTimeLoad = true;
+				dispQue(1);
 			}
 		}
 	}//end of onreadystatechange() anonymous function...
@@ -31,13 +36,61 @@ function sendGetQueReq()
 	//alert("Sent XHR request");
 }//end of function sendReq..
 
-function transformQueXml(xmlQueString)
+function dispQue(queNo)
+{
+	if(queNo > 24 || queNo < 1)
+		return;
+	else
+	{
+		dispQueNo = queNo;
+		transformQueXml(quesArray[queNo-1]);
+	}
+	if(!firstTimeLoad )
+	{
+	document.getElementById("ButtonNext").disabled = false;
+	document.getElementById("ButtonPrev").disabled = false;
+	document.getElementById("Submit").disabled = false;	
+	}
+	if(dispQueNo == 1)
+	{
+	//disable prev button...
+	if(!firstTimeLoad )
+	{
+	document.getElementById("ButtonNext").disabled = false;
+	document.getElementById("ButtonPrev").disabled = true;
+	document.getElementById("Submit").disabled = true;		
+	}
+	}
+	else if(dispQueNo == 24)
+	{
+	if(!firstTimeLoad )
+	{
+		document.getElementById("ButtonNext").disabled = true;
+		document.getElementById("ButtonPrev").disabled = false;
+		document.getElementById("Submit").disabled = false;
+		//disable Next button
+		//enable submit button
+	}
+	}
+	if(firstTimeLoad )
+		firstTimeLoad = false;
+}
+
+function transformQueXmlToArray(xmlQueString)
+{
+	var domParser = new DOMParser();
+	xmlDom = domParser.parseFromString(xmlQueString,"text/xml");
+
+	quesArray = xmlDom.firstChild.children;
+}
+
+function transformQueXml(xmlDom)
 {
 	//alert("Transforming the received xml file");
 	//var xmlDom = zXmlDom.createDocument();
 	//var xmlDom =  document.implementation.createDocument("","",null);
-	var domParser = new DOMParser();
-	xmlDom = domParser.parseFromString(xmlQueString,"text/xml");
+	//var domParser = new DOMParser();
+	//xmlDom = domParser.parseFromString(xmlQueString,"text/xml");
 	//xmlDom.async = false;
 	//xmlDom.loadXML(xmlQueString);
 	
@@ -90,17 +143,36 @@ function Save()
 }
 
 
+function setGridStatus()
+{
+	//we know que no... so  change color of those grid statusses..
+}
+
+
 function Reset()
 {
 	alert("Question Reset");
 }
 
+function dispSpecQue(queNo)
+{
+	dispQue(queNo);
+}
+
 function NextQue()
 {
-	alert("Next Question Retrieved.");
+	//alert("Next Question Retrieved.");
+	dispQue(dispQueNo+1);
 }
 
 function PrevQue()
 {
-	alert("Moved to Previous Question");
+	//alert("Moved to Previous Question");
+	dispQue(dispQueNo+1);
+}
+
+function MarkForReview()
+{
+	//mark currently loaded que for review..
+	setGridColorMarked(dispQueNo);
 }
