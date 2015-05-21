@@ -1,5 +1,12 @@
-<form class="timer" method=" action="">
-	<fieldset >
+<form class="timer" method=""action="">
+	<style>
+	.timer{
+		   width:100%;
+		   height:60%;
+		   
+	       }
+    </style>
+	<fieldset>
 		<link rel="stylesheet" href="../css/flipclock.css">
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
