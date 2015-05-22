@@ -6,7 +6,7 @@ $i = 1;
 
 $myQueString = "<Questions>";
 //while($i<25)
-while($i<2)
+while($i<6)
 {
 $result=mysql_query("select * from que_list where que_id='$i'");
 $count=mysql_num_rows($result);
@@ -59,7 +59,7 @@ if($j == 6)
 if($j == 7)
 		{
 			$myQueString = $myQueString."<ans>";
-			$myQueString = $myQueString."$val[6]";
+			$myQueString = $myQueString."$val[7]";
 			$myQueString = $myQueString."</ans>";
 		}			
 	}

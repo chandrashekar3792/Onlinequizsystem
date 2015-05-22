@@ -213,6 +213,7 @@ function sendAnsAndReqRes()
 		totalQues++;
 		//document.getElementById("RightAns").style.color = "green";
 		//document.getElementById("RightAns").innerHTML = "Correct Answer :" + quesArray[iter].lastChild.textContent;
+		//alert("Correct Answer :" + quesArray[iter].lastChild.textContent);
 		if(quesArray[iter].lastChild.textContent == markedAns[iter])
 		{
 			correctAns++;
