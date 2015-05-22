@@ -51,9 +51,9 @@ insert into que_list values(10,"topic10","How many 3-digit numbers are completel
 -- insert into que_list values(19,"topic19","Question Desc34","op1","op2","op3","op4","ans");
 -- insert into que_list values(20,"topic20","Question Desc43","op1","op2","op3","op4","ans");
 -- insert into que_list values(21,"topic21","Question Desc32","op1","op2","op3","op4","ans");
--- insert into que_list values(22,"topic22","Question Desc33","op1","op2","op3","op4","ans");
--- insert into que_list values(23,"topic23","Question Desc23","op1","op2","op3","op4","ans");
--- insert into que_list values(24,"topic24","Question Desc24","op1","op2","op3","op4","ans");
+ insert into que_list values(22,"topic22","An on-line commercial site such as Amazon.com is an example of a(n) ________ ","single-user database application","multiuser database application","e-commerce database application","data mining database application","e-commerce database application");
+ insert into que_list values(23,"topic23","The following are components of a database except ________","user data","metadata","reports","indexes","reports");
+ insert into que_list values(24,"topic24","The DBMS acts as an interface between what two components of an enterprise-class database system?","Database application and the database","Data and the database","The user and the database application","Database application and SQL","Data and the database");
 -- insert into que_list values(25,"","","","","","","");
 -- insert into que_list values(26,"","","","","","","");
 -- insert into que_list values(27,"","","","","","","");
