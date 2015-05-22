@@ -58,10 +58,5 @@
 	  
 		}
 	   </style>
-<script>
-	function myFunction(elmnt,clr) {
-		//alert("Fn Called");
-		//elmnt.style.background = "green";
-	}
-</script>
+<script type="text/javascript" src="../js/grid.js"></script>
   </form>

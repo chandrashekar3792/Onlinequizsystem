@@ -10,7 +10,7 @@
 		</head>
 
 		<body>
-			<form method="POST" action="RequestResult.php" onsubmit="sendAnsAndReqRes(); return false">
+			<form method="POST" action="" onsubmit="sendAnsAndReqRes(); return false">
 				<fieldset>
 					<xsl:apply-templates />
 					<input type="button" id="ButtonNext" name="ButtonNext" value="Next" onclick="NextQue()" />
@@ -32,10 +32,12 @@
 	<xsl:variable name="_op4" select="op4" />
 	<p>
 		<label style="width:500px"><xsl:value-of select="QText" />:</label><br />
-		<input type="radio" onchange="setGridStatus()" name="options" value="{$_op1}"/> <label><xsl:value-of select="$_op1" /></label><br />
-		<input type="radio" onchange="setGridStatus()" name="options" value="{$_op2}"/> <label><xsl:value-of select="$_op2" /></label><br />
-		<input type="radio" onchange="setGridStatus()" name="options" value="{$_op3}"/> <label><xsl:value-of select="$_op3" /></label><br />
-		<input type="radio" onchange="setGridStatus()" name="options" value="{$_op4}"/> <label><xsl:value-of select="$_op4" /></label><br />
+		<input type="radio" id="op1" onchange="setGridStatus()" name="options" value="{$_op1}"/> <label><xsl:value-of select="$_op1" /></label><br />
+		<input type="radio" id="op2" onchange="setGridStatus()" name="options" value="{$_op2}"/> <label><xsl:value-of select="$_op2" /></label><br />
+		<input type="radio" id="op3" onchange="setGridStatus()" name="options" value="{$_op3}"/> <label><xsl:value-of select="$_op3" /></label><br />
+		<input type="radio" id="op4" onchange="setGridStatus()" name="options" value="{$_op4}"/> <label><xsl:value-of select="$_op4" /></label><br />
+		<div id="RightAns"></div>
+		<div id="IsAnsCor"></div>
 		<input type="button" value="Mark For Review" id="ButtonMark" onclick="MarkForReview()" />
 		<!--input type="button" value="Reset" id="ButtonReset" onclick = "Reset()" /-->
 	</p>

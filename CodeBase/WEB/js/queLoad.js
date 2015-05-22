@@ -6,8 +6,9 @@
 		// //transformXml(xml);
 	// }
 // }//end of fn loadAndTransformXml..
-var quesArray = new Array();
-var dispQueNo = 1;
+quesArray = new Array();
+markedAns = new Array();
+dispQueNo = 1;
 
 function sendGetQueReq()
 {
@@ -25,7 +26,6 @@ function sendGetQueReq()
 				//alert("Correct response received");
 				//transformQueXml(xhrReq.responseText);
 				transformQueXmlToArray(xhrReq.responseText);
-				firstTimeLoad = true;
 				dispQue(1);
 			}
 		}
@@ -45,35 +45,7 @@ function dispQue(queNo)
 		dispQueNo = queNo;
 		transformQueXml(quesArray[queNo-1]);
 	}
-	if(!firstTimeLoad )
-	{
-	document.getElementById("ButtonNext").disabled = false;
-	document.getElementById("ButtonPrev").disabled = false;
-	document.getElementById("Submit").disabled = false;	
-	}
-	if(dispQueNo == 1)
-	{
-	//disable prev button...
-	if(!firstTimeLoad )
-	{
-	document.getElementById("ButtonNext").disabled = false;
-	document.getElementById("ButtonPrev").disabled = true;
-	document.getElementById("Submit").disabled = true;		
-	}
-	}
-	else if(dispQueNo == 24)
-	{
-	if(!firstTimeLoad )
-	{
-		document.getElementById("ButtonNext").disabled = true;
-		document.getElementById("ButtonPrev").disabled = false;
-		document.getElementById("Submit").disabled = false;
-		//disable Next button
-		//enable submit button
-	}
-	}
-	if(firstTimeLoad )
-		firstTimeLoad = false;
+	parent.document.getElementById("questFrame").contentDocument.getElementById("QuestionNo").innerHTML = "Question No:" + dispQueNo;
 }
 
 function transformQueXmlToArray(xmlQueString)
@@ -127,7 +99,24 @@ function transformQueXml(xmlDom)
 				//now update the page..
 				//document.documentElement.innerHTML = transformedString;
 				document.getElementById("DivQuestion").innerHTML = transformedString;
-				
+
+				document.getElementById("ButtonNext").disabled = false;
+				document.getElementById("ButtonPrev").disabled = false;
+				document.getElementById("Submit").disabled = true;	
+				if(dispQueNo == 1)
+				{
+					document.getElementById("ButtonNext").disabled = false;
+					document.getElementById("ButtonPrev").disabled = true;
+					document.getElementById("Submit").disabled = true;		
+				}
+				else if(dispQueNo == 24)
+				{
+					document.getElementById("ButtonNext").disabled = true;
+					document.getElementById("ButtonPrev").disabled = false;
+					document.getElementById("Submit").disabled = false;
+					//disable Next button
+					//enable submit button
+				}
 				//alert("Finished adding to web page");				
 			}
 		}
@@ -146,17 +135,22 @@ function Save()
 function setGridStatus()
 {
 	//we know que no... so  change color of those grid statusses..
+	//alert("Changing grid status");
+	setGridColorAnswered(dispQueNo+"");
+	if(document.getElementById("op1").checked)
+		markedAns[dispQueNo-1] = document.getElementById("op1").value;
+	else if(document.getElementById("op2").checked)
+		markedAns[dispQueNo-1] = document.getElementById("op2").value;
+	else if(document.getElementById("op3").checked)
+		markedAns[dispQueNo-1] = document.getElementById("op3").value;	
+	else
+		markedAns[dispQueNo-1] = "NA";	
 }
 
 
 function Reset()
 {
 	alert("Question Reset");
-}
-
-function dispSpecQue(queNo)
-{
-	dispQue(queNo);
 }
 
 function NextQue()
@@ -168,11 +162,42 @@ function NextQue()
 function PrevQue()
 {
 	//alert("Moved to Previous Question");
-	dispQue(dispQueNo+1);
+	dispQue(dispQueNo-1);
 }
 
 function MarkForReview()
 {
 	//mark currently loaded que for review..
-	setGridColorMarked(dispQueNo);
+	//alert("mark for review");
+	setGridColorMarked(dispQueNo+"");
+}
+
+function sendAnsAndReqRes()
+{
+	correctAns = 0;
+	wrongAns = 0;
+	unAns = 0;
+	totalQues = 0;
+	for(var iter=0;iter<quesArray.length;iter++)
+	{
+		totalQues++;
+		document.getElementById("RightAns").innerHTML = quesArray[iter].lastChild.textContent."";
+		if(quesArray[iter].lastChild.textContent == markedAns[iter])
+		{
+			correctAns++;
+			// document.getElementById("IsAnsCor").style.color = "green";
+			// document.getElementById("IsAnsCor").innerHTML = "Correct";
+		}
+		else if(markedAns[iter] == "NA")
+		{
+			unAns++;
+		}
+		else
+		{
+			wrongAns++;
+			// document.getElementById("IsAnsCor").style.color = "red";
+			// document.getElementById("IsAnsCor").innerHTML = "Wrong";
+		}
+	}//end of for loop...
+	alert("Total No of questions: "+totalQues+"\n UnAnswered Questions: "+unAns+" \n Wrong Answers: "+wrongAns
 }

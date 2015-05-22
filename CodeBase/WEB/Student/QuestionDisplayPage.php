@@ -10,6 +10,7 @@
 </script>
 
 <!-- Here you need to add the timer clock and the div space for questions -->
+<div id="QuestionNo">Que No:</div>
 <div id="DivQuestion">
 
 	<!--form id="FormQuestion" action="" method="">

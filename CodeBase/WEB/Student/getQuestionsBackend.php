@@ -17,7 +17,7 @@ $val = mysql_fetch_array($result,MYSQL_BOTH);
 while($j < $colCnt)
 {
 	//print_r($val);
-	if($j != 1 and $j!=7)
+	if($j != 1)
 	{
 		if($j == 0)
 		{
@@ -54,7 +54,13 @@ if($j == 6)
 			$myQueString = $myQueString."<op4>";
 			$myQueString = $myQueString."$val[6]";
 			$myQueString = $myQueString."</op4>";
-		}		
+		}	
+if($j == 7)
+		{
+			$myQueString = $myQueString."<ans>";
+			$myQueString = $myQueString."$val[6]";
+			$myQueString = $myQueString."</ans>";
+		}			
 	}
 	$j++;
 }//end of inner while
