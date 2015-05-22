@@ -5,7 +5,8 @@ include '../common/dbconnect.php';
 $i = 1;
 
 $myQueString = "<Questions>";
-while($i<25)
+//while($i<25)
+while($i<2)
 {
 $result=mysql_query("select * from que_list where que_id='$i'");
 $count=mysql_num_rows($result);

@@ -9,7 +9,7 @@
 quesArray = new Array();
 markedAns = new Array();
 dispQueNo = 1;
-
+ansSubmitted = false;
 function sendGetQueReq()
 {
 	//alert("Creating XHR REQ");
@@ -54,6 +54,10 @@ function transformQueXmlToArray(xmlQueString)
 	xmlDom = domParser.parseFromString(xmlQueString,"text/xml");
 
 	quesArray = xmlDom.firstChild.children;
+	for(itr = 0;itr<quesArray.length;itr++)
+	{
+		markedAns[itr] = "NA";	
+	}
 }
 
 function transformQueXml(xmlDom)
@@ -109,7 +113,7 @@ function transformQueXml(xmlDom)
 					document.getElementById("ButtonPrev").disabled = true;
 					document.getElementById("Submit").disabled = true;		
 				}
-				else if(dispQueNo == 24)
+				if(dispQueNo == quesArray.length)
 				{
 					document.getElementById("ButtonNext").disabled = true;
 					document.getElementById("ButtonPrev").disabled = false;
@@ -117,6 +121,29 @@ function transformQueXml(xmlDom)
 					//disable Next button
 					//enable submit button
 				}
+				if(ansSubmitted)
+				{
+					document.getElementById("Submit").disabled = true;
+					document.getElementById("op1").disabled = true;
+					document.getElementById("op2").disabled = true;
+					document.getElementById("op3").disabled = true;
+					document.getElementById("op4").disabled = true;					
+					document.getElementById("ButtonMark").disabled = true;
+					
+					document.getElementById("RightAns").style.color = "green";
+					document.getElementById("RightAns").innerHTML = "Correct Answer :" + quesArray[dispQueNo-1].lastChild.textContent;				
+					if(quesArray[dispQueNo-1].lastChild.textContent == markedAns[dispQueNo-1])
+					{				
+						document.getElementById("RightAns").style.color = "green";
+						document.getElementById("RightAns").innerHTML = "Correct Answer :" + quesArray[dispQueNo-1].lastChild.textContent;					
+					}
+					else
+					{
+						document.getElementById("IsAnsCor").style.color = "red";
+						document.getElementById("IsAnsCor").innerHTML = "Wrong";					
+					}
+				}
+				
 				//alert("Finished adding to web page");				
 			}
 		}
@@ -143,6 +170,8 @@ function setGridStatus()
 		markedAns[dispQueNo-1] = document.getElementById("op2").value;
 	else if(document.getElementById("op3").checked)
 		markedAns[dispQueNo-1] = document.getElementById("op3").value;	
+	else if(document.getElementById("op4").checked)
+		markedAns[dispQueNo-1] = document.getElementById("op4").value;			
 	else
 		markedAns[dispQueNo-1] = "NA";	
 }
@@ -174,6 +203,7 @@ function MarkForReview()
 
 function sendAnsAndReqRes()
 {
+	ansSubmitted = true;
 	correctAns = 0;
 	wrongAns = 0;
 	unAns = 0;
@@ -181,7 +211,8 @@ function sendAnsAndReqRes()
 	for(var iter=0;iter<quesArray.length;iter++)
 	{
 		totalQues++;
-		document.getElementById("RightAns").innerHTML = quesArray[iter].lastChild.textContent."";
+		//document.getElementById("RightAns").style.color = "green";
+		//document.getElementById("RightAns").innerHTML = "Correct Answer :" + quesArray[iter].lastChild.textContent;
 		if(quesArray[iter].lastChild.textContent == markedAns[iter])
 		{
 			correctAns++;
@@ -191,6 +222,8 @@ function sendAnsAndReqRes()
 		else if(markedAns[iter] == "NA")
 		{
 			unAns++;
+			// document.getElementById("IsAnsCor").style.color = "red";
+			// document.getElementById("IsAnsCor").innerHTML = "Wrong";			
 		}
 		else
 		{
@@ -199,5 +232,6 @@ function sendAnsAndReqRes()
 			// document.getElementById("IsAnsCor").innerHTML = "Wrong";
 		}
 	}//end of for loop...
-	alert("Total No of questions: "+totalQues+"\n UnAnswered Questions: "+unAns+" \n Wrong Answers: "+wrongAns
+	dispQue(1);
+	alert("Total No of questions: "+totalQues+"\n UnAnswered Questions: "+unAns+" \n Wrong Answers: "+wrongAns + " \nCorrect Answers: "+ correctAns);
 }
