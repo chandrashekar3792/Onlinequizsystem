@@ -1,5 +1,7 @@
 
-<?php $Title = "Online Quiz"; include_once "../Common/header.php"; ?>
+<?php $Title = "Online Quiz"; 
+include_once "../checkUserSession.php";
+include_once "../Common/header.php"; ?>
 <style>
 	table {
 	margin: 0 auto;

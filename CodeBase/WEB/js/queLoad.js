@@ -234,5 +234,5 @@ function sendAnsAndReqRes()
 		}
 	}//end of for loop...
 	dispQue(1);
-	alert("Total No of questions: "+totalQues+"\n UnAnswered Questions: "+unAns+" \n Wrong Answers: "+wrongAns + " \nCorrect Answers: "+ correctAns);
+	alert("Total No of questions: "+totalQues+"\n UnAnswered Questions: "+unAns+" \n Wrong Answers: "+wrongAns + " \nCorrect Answers: "+ correctAns + ". \n Your Score Is: "+ correctAns+"/"+totalQues);
 }
