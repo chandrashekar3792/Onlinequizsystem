@@ -47,7 +47,7 @@ insert into que_list values(14,"topic14","What will happen if in a C program you
 insert into que_list values(15,"topic15","In C, if you pass an array as an argument to a function, what actually gets passed?","Value of elements in array","First element of the array","Base address of the array","Address of the last element of array","Base address of the array");
 insert into que_list values(16,"topic16","Which of the following function sets first n characters of a string to a given character?","strinit()","strnset()","strset()","strcset()","strnset()");
 insert into que_list values(17,"topic17","If the two strings are identical, then strcmp() function returns","-1","1","0","yes","0");
-insert into que_list values(18,"topic18","How will you print \n on the screen?","printf("\n");","echo "\\n";","printf('\n');","printf("\\n");","printf("\\n");");
+insert into que_list values(18,"topic18","How will you print \n on the screen?","printf('\n');","echo '\\n';","printf('\n');","printf('\\n');","printf('\\n');");
 insert into que_list values(19,"topic19","The library function used to find the last occurrence of a character in a string is","strnstr()","laststr()","strrchr()","strstr()","strrchr()");
 insert into que_list values(20,"topic20","Which of the following function is used to find the first occurrence of a given string in another string?","strchr()","strrchr()","strstr()","strnset()","strstr()");
 insert into que_list values(21,"topic21","The keyword used to transfer control from a function back to the calling function is","switch","goto","go back","return","return");
